@@ -2,7 +2,9 @@ package org.generation.italy.demo;
 
 import java.util.List;
 
+import org.generation.italy.demo.pojo.Drink;
 import org.generation.italy.demo.pojo.Pizza;
+import org.generation.italy.demo.serv.DrinkService;
 import org.generation.italy.demo.serv.PizzaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -14,6 +16,9 @@ public class SpringLaMiaPizzeriaCrudApplication implements CommandLineRunner {
 
 	@Autowired
 	private PizzaService pizzaService;
+	
+	@Autowired
+	private DrinkService drinkService;
 	
 	
 	public static void main(String[] args) {
@@ -35,9 +40,22 @@ public class SpringLaMiaPizzeriaCrudApplication implements CommandLineRunner {
 		pizzaService.save(p4);
 		pizzaService.save(p5);
 		
-		
 		List<Pizza> pizze = pizzaService.findAll();
-		System.out.println(pizze);
+		
+		
+		Drink d1 = new Drink("Mojito", null, 12);
+		Drink d2 = new Drink("Mojitone", "Good", 14);
+		Drink d3 = new Drink("Moscow Mule", null, 10);
+		Drink d4 = new Drink("Negroni", null, 13);
+		Drink d5 = new Drink("Talisker", null, 15);
+		
+		drinkService.save(d1);
+		drinkService.save(d2);
+		drinkService.save(d3);
+		drinkService.save(d4);
+		drinkService.save(d5);
+		
+		List<Drink> drinks = drinkService.findAll();
 	}
 
 }

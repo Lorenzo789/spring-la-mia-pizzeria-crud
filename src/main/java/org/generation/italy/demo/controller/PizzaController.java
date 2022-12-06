@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/")
-public class MainController {
+public class PizzaController {
 
 	@Autowired
 	private PizzaService pizzaService;
