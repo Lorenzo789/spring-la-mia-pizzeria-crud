@@ -8,6 +8,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 
 @Entity
@@ -19,7 +20,7 @@ public class Drink {
 	private int id;
 	
 	@Column(unique = true)
-	@NotNull
+	@NotEmpty(message = "the name can't be empty")
 	private String name;
 	
 	@Column
@@ -27,8 +28,8 @@ public class Drink {
 	private String description;
 	
 	@Column
-	@NotNull
-	@Min(value = 1)
+	@NotNull(message = "price can't be null")
+	@Min(value = 1, message = "the price must be bigger than 0")
 	private int price;
 	
 	public Drink() {}

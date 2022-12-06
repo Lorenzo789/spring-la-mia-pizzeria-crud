@@ -10,6 +10,14 @@
 </head>
 <body>
     <h1>Add new Pizza</h1>
+    <div th:if="${errors}">
+		<h4>Error</h4>
+		<ul>
+			<li th:each="error : ${errors}" th:object="${error}">
+				[[*{defaultMessage}]]
+			</li>
+		</ul>
+	</div>
     <form method="POST" action="/pizza/create" th:object="${pizza}" >
         <div>
             <label>Name</label>
