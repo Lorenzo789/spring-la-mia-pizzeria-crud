@@ -37,17 +37,17 @@
 
           <tr th:each="drink : ${drinks}" th:object="${drink}">
 
-            <td th:text="*{name}"></td>
-            <td th:text="*{description}"></td>
-            <td th:text="*{price}"></td>
+            <td>[[*{name}]]</td>
+            <td>[[*{description}]]</td>
+            <td>[[*{price}]]</td>
 
           </tr>
           
           <tr th:each="pizza : ${pizzas}" th:object="${pizza}">
 
-            <td th:text="*{name}"></td>
-            <td th:text="*{description}"></td>
-            <td th:text="*{price}"></td>
+            <td>[[*{name}]]</td>
+            <td>[[*{description}]]</td>
+            <td>[[*{price}]]</td>
 
           </tr>
 
