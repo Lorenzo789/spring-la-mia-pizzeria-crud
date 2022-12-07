@@ -9,6 +9,7 @@
     <title>Form</title>
 </head>
 <body>
+    <header th:replace="~{frag :: header()}"></header>
     <h1>Add new Pizza</h1>
     <div th:if="${errors}">
 		<h4>Error</h4>

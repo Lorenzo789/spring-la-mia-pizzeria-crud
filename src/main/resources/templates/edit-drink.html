@@ -9,6 +9,7 @@
     <title>Edit</title>
 </head>
 <body>
+    <header th:replace="~{frag :: header()}"></header>
     <h1>Drink Edit</h1>
     <form method="POST" action="/drinks/edit-drink" th:object="${drink}" >
     	<input type="number" name="id" th:field="*{id}" style="display:none">

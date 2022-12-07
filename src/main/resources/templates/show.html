@@ -9,6 +9,7 @@
     <title>Show Pizza</title>
 </head>
 <body th:object="${selectedPizza}">
+    <header th:replace="~{frag :: header()}"></header>
     <main>
         <h1>You selected the pizza [[*{name}]]</h1>
 
