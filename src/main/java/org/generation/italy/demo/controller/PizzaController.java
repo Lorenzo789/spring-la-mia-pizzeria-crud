@@ -4,16 +4,17 @@ import java.util.List;
 import java.util.Optional;
 
 import org.generation.italy.demo.pojo.Pizza;
+import org.generation.italy.demo.serv.DrinkService;
 import org.generation.italy.demo.serv.PizzaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import jakarta.validation.Valid;
@@ -24,6 +25,7 @@ public class PizzaController {
 
 	@Autowired
 	private PizzaService pizzaService;
+	private DrinkService drinkService;
 	
 	@GetMapping
 	public String index(Model model) {
@@ -103,5 +105,26 @@ public class PizzaController {
 		pizzaService.delete(pizza);
 		
 		return "redirect:/";
+	}
+	
+	@GetMapping("/search/pizza")
+	public String searchPizza(@RequestParam(name="query", required=false)String query, Model model) {
+		
+		List<Pizza> pizze = null;
+		
+		if (query == null) {
+			
+			pizze = pizzaService.findAll();
+			
+		} else {
+			
+			pizze = pizzaService.searchByName(query);
+			
+		}
+		
+		model.addAttribute("pizze", pizze);
+		model.addAttribute("query", query);
+		
+		return "home";
 	}
 }

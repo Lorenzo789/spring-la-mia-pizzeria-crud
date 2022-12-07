@@ -18,20 +18,29 @@ public class DrinkService {
 		
 		drinkRepo.save(drink);
 	}
+	
 	public List<Drink> findAll() {
 		
 		return drinkRepo.findAll();
 	}
+	
 	public Optional<Drink> findDrinkById(int id) {
 		
 		return drinkRepo.findById(id);
 	}
+	
 	public void delete(Drink drink) {
 		
 		drinkRepo.delete(drink);
 	}
+	
 	public void deleteById(int id) {
 		
 		drinkRepo.deleteById(id);
+	}
+	
+	public List<Drink> searchByName(String name) {
+		
+		return drinkRepo.findByNameContainingIgnoreCase(name);
 	}
 }

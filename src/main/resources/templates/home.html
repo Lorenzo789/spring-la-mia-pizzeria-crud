@@ -11,6 +11,21 @@
 </head>
 <body>
     <main>
+
+        <form class="m-5" action="/search/pizza" method="GET">
+            <div class="mb-3">
+                <label for="query" class="form-label">Search a pizza</label>
+                <input type="text" name="query" th:value="${query}">
+            </div>
+
+            <div>
+                <button type="submit" class="btn btn-primary">
+                    Search
+                </button>
+            </div>
+        </form>
+
+        <!-- Table for Pizza -->
         <table class="table table-dark table-striped">
             <thead>
               <tr>
@@ -44,6 +59,7 @@
               </tr>
             </tbody>
         </table>
+        <!-- Table for Pizza -->
     </main>
 </body>
 </html>
