@@ -69,8 +69,8 @@ public class ProductConroller {
 		List<Pizza> pizzas = pizzaService.findAll();
 		List<Drink> drinks = drinkService.findAll();
 		
-		elements.add((PriceableInt) pizzas);
-		elements.add((PriceableInt) drinks);
+		elements.addAll(pizzas);
+		elements.addAll(drinks);
 		
 		elements.sort((p1, p2) -> p1.getPrice() - p2.getPrice());
 		model.addAttribute("elements", elements);

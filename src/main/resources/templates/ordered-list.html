@@ -10,6 +10,27 @@
 </head>
 <body>
     <header th:replace="~{frag :: header()}"></header>
-    <h1>CIAO</h1>
+    <h1 class="text-center mb-3">Ordered List</h1>
+
+    <table class="table table-dark table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Description</th>
+            <th scope="col" colspan="1">Price</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <tr th:each="element : ${elements}" th:object="${element}">
+
+            <td>[[*{name}]]</td>
+            <td>[[*{description}]]</td>
+            <td>[[*{price}]]</td>
+
+          </tr>
+        </tbody>
+    </table>
+
 </body>
 </html>
